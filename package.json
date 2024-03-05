@@ -6,7 +6,7 @@
   "repository": "vladshcherbin/kysely-kit",
   "type": "module",
   "bin": {
-    "kysely-kit": "./build/cli.js"
+    "kysely-kit": "./bin/kysely-kit.js"
   },
   "scripts": {
     "build": "tsc",
@@ -38,6 +38,7 @@
     "typescript": "^5.3.3"
   },
   "files": [
+    "bin",
     "build"
   ],
   "engines": {
