@@ -1,0 +1,5 @@
+.env
+build
+kysely-kit.config.js
+node_modules
+types

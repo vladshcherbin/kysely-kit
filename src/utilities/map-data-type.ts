@@ -1,0 +1,14 @@
+export default function mapDataType(dataType: string): string {
+  switch (dataType) {
+    case 'int4':
+      return 'number'
+    case 'jsonb':
+      return 'JSONColumnType<{}>'
+    case 'varchar':
+      return 'string'
+    case 'timestamptz':
+      return 'Date'
+    default:
+      throw new Error(`Unknown data type: ${dataType}`)
+  }
+}

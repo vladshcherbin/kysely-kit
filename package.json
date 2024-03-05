@@ -1,0 +1,47 @@
+{
+  "name": "kysely-kit",
+  "description": "Useful utilities for working with Kysely",
+  "version": "0.0.0",
+  "author": "Vlad Shcherbin <vlad.shcherbin@gmail.com>",
+  "repository": "vladshcherbin/kysely-kit",
+  "type": "module",
+  "bin": {
+    "kysely-kit": "./build/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch --env-file=.env src/cli.ts",
+    "lint": "eslint src",
+    "prepublishOnly": "yarn lint && yarn build"
+  },
+  "dependencies": {
+    "camelcase": "^8.0.0",
+    "cosmiconfig": "^9.0.0",
+    "prettier": "^3.2.5",
+    "ts-morph": "^21.0.1",
+    "yargs": "^17.7.2"
+  },
+  "peerDependencies": {
+    "kysely": "^0.27.2",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "@shcherbin/eslint-config-node-typescript": "^0.1.1",
+    "@tsconfig/node20": "^20.1.2",
+    "@types/node": "^20.11.24",
+    "@types/pg": "^8.11.2",
+    "@types/yargs": "^17.0.32",
+    "eslint": "^8.57.0",
+    "kysely": "^0.27.2",
+    "pg": "^8.11.3",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  },
+  "files": [
+    "build"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
