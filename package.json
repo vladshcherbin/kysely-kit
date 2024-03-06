@@ -43,7 +43,7 @@
   "bin": {
     "kysely": "build/kysely.js"
   },
-  "types": "types/index.d.ts",
+  "types": "types/kysely.d.ts",
   "engines": {
     "node": ">=20"
   },
