@@ -1,14 +1,16 @@
-import yargs from 'yargs'
-import { hideBin } from 'yargs/helpers'
+#!/usr/bin/env node
+import sade from 'sade'
+import { description, version } from '../package.json'
 import generateTypes from './utilities/generate-types.js'
 
-yargs(hideBin(process.argv))
-  .command('generate-types', 'Generate database types', {
-    output: {
-      alias: 'o',
-      demandOption: true,
-      describe: 'The output file for the generated types'
-    }
-  }, ({ output }) => generateTypes(output as string))
-  .demandCommand(1)
-  .parse()
+const cli = sade('kysely')
+
+cli
+  .version(version)
+  .describe(description)
+  // Generate types
+  .command('generate-types <filename>', 'Generate types for your database')
+  .example('generate-types types/database.d.ts')
+  .action((filename: string) => generateTypes(filename))
+
+cli.parse(process.argv)
