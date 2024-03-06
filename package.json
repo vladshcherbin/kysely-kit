@@ -6,7 +6,7 @@
   "repository": "vladshcherbin/kysely-kit",
   "type": "module",
   "bin": {
-    "kysely-kit": "./bin/kysely-kit.js"
+    "kysely": "./build/cli.js"
   },
   "scripts": {
     "build": "tsc",
