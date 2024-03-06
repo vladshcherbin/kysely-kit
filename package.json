@@ -6,20 +6,23 @@
   "repository": "vladshcherbin/kysely-kit",
   "type": "module",
   "bin": {
-    "kysely": "./build/cli.js"
+    "kysely": "./build/kysely.js"
   },
   "scripts": {
     "build": "tsc",
-    "dev": "tsx watch --env-file=.env src/cli.ts",
+    "dev": "tsx watch --env-file=.env src/kysely.ts",
     "lint": "eslint src",
     "prepublishOnly": "yarn lint && yarn build"
   },
   "dependencies": {
     "camelcase": "^8.0.0",
     "cosmiconfig": "^9.0.0",
+    "dotenv": "^16.4.5",
     "prettier": "^3.2.5",
+    "read-package-up": "^11.0.0",
     "sade": "^1.8.1",
-    "ts-morph": "^21.0.1"
+    "ts-morph": "^21.0.1",
+    "valibot": "^0.29.0"
   },
   "peerDependencies": {
     "kysely": "^0.27.2",
