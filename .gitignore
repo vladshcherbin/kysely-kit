@@ -2,4 +2,3 @@
 build
 kysely.config.js
 node_modules
-types

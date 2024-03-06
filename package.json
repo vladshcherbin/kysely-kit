@@ -5,9 +5,6 @@
   "author": "Vlad Shcherbin <vlad.shcherbin@gmail.com>",
   "repository": "vladshcherbin/kysely-kit",
   "type": "module",
-  "bin": {
-    "kysely": "./build/kysely.js"
-  },
   "scripts": {
     "build": "tsc",
     "dev": "tsx watch --env-file=.env src/kysely.ts",
@@ -40,9 +37,13 @@
     "typescript": "^5.3.3"
   },
   "files": [
-    "bin",
-    "build"
+    "build",
+    "types"
   ],
+  "bin": {
+    "kysely": "build/kysely.js"
+  },
+  "types": "types/index.d.ts",
   "engines": {
     "node": ">=20"
   },
