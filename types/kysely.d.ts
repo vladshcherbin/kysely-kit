@@ -1,3 +1,5 @@
+import type { LogEvent } from 'kysely'
+
 export interface Config {
   imports?: {
     defaultImport: string
@@ -9,3 +11,5 @@ export interface Config {
     type: string
   }[]
 }
+
+export default function highlightQuery(event: LogEvent): string
