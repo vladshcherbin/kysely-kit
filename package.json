@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "dev": "tsx watch --env-file=.env src/kysely.ts",
+    "dev:cli": "tsx watch --env-file=.env src/cli/kysely.ts",
     "lint": "eslint src",
     "prepublishOnly": "yarn lint && yarn build"
   },
@@ -41,7 +41,7 @@
     "types"
   ],
   "bin": {
-    "kysely": "build/kysely.js"
+    "kysely": "build/cli/kysely.js"
   },
   "types": "types/kysely.d.ts",
   "engines": {
