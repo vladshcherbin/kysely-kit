@@ -42,7 +42,10 @@
     "build",
     "types"
   ],
-  "exports": "./build/highlight-query.js",
+  "exports": {
+    "types": "./types/kysely.d.ts",
+    "import": "./build/highlight-query.js"
+  },
   "bin": {
     "kysely": "build/cli/kysely.js"
   },
