@@ -4,6 +4,7 @@ export default function mapDataType(dataType: string): string {
       return 'number'
     case 'jsonb':
       return 'JSONColumnType<{}>'
+    case 'text':
     case 'varchar':
       return 'string'
     case 'timestamptz':
