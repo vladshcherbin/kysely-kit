@@ -16,11 +16,12 @@ export default function addGenerateTypesCommand() {
     .example('generate-types types/database.d.ts')
     .action(async (output: string) => {
       const tables = await database.introspection.getTables()
+      const publicTables = tables.filter((table) => table.schema === 'public')
       const config = await loadConfig()
       const project = new Project()
       const sourceFile = project.createSourceFile(
         output,
-        { statements: generateTableTypes(tables) },
+        { statements: generateTableTypes(publicTables) },
         { overwrite: true }
       )
 
@@ -28,13 +29,13 @@ export default function addGenerateTypesCommand() {
       generateKyselyImports(sourceFile)
       generateImports(sourceFile, config)
       generateOverrides(sourceFile, config)
-      generateDatabaseType(sourceFile, tables)
+      generateDatabaseType(sourceFile, publicTables)
 
       await prettify(sourceFile)
       await sourceFile.save()
       await database.destroy()
 
       // eslint-disable-next-line no-console
-      console.info(`Generated types for ${tables.length} tables in ${output}`)
+      console.info(`Generated types for ${publicTables.length} tables in ${output}`)
     })
 }
