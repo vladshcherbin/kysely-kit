@@ -7,19 +7,17 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "dev:cli": "tsx watch --env-file=.env src/cli/kysely.ts",
+    "dev": "tsx watch --env-file=.env src/kysely.ts",
     "lint": "eslint src",
     "prepublishOnly": "yarn lint && yarn build"
   },
   "dependencies": {
-    "ansi-styles": "^6.2.1",
     "camelcase": "^8.0.0",
     "cosmiconfig": "^9.0.0",
     "dotenv": "^16.4.5",
     "prettier": "^3.2.5",
     "read-package-up": "^11.0.0",
     "sade": "^1.8.1",
-    "sql-highlight": "^5.0.0-beta.2",
     "ts-morph": "^21.0.1",
     "valibot": "^0.29.0"
   },
@@ -42,12 +40,8 @@
     "build",
     "types"
   ],
-  "exports": {
-    "types": "./types/kysely.d.ts",
-    "import": "./build/highlight-query.js"
-  },
   "bin": {
-    "kysely": "build/cli/kysely.js"
+    "kysely": "build/kysely.js"
   },
   "types": "types/kysely.d.ts",
   "engines": {
