@@ -18,23 +18,23 @@
     "prettier": "^3.2.5",
     "read-package-up": "^11.0.0",
     "sade": "^1.8.1",
-    "ts-morph": "^21.0.1",
-    "valibot": "^0.29.0"
+    "ts-morph": "^22.0.0",
+    "valibot": "^0.30.0"
   },
   "peerDependencies": {
     "kysely": "^0.27.2",
     "pg": "^8.11.3"
   },
   "devDependencies": {
-    "@shcherbin/eslint-config-node-typescript": "^0.1.1",
-    "@tsconfig/node20": "^20.1.2",
-    "@types/node": "^20.11.24",
-    "@types/pg": "^8.11.2",
+    "@shcherbin/eslint-config-node-typescript": "^0.2.0",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.12.7",
+    "@types/pg": "^8.11.5",
     "eslint": "^8.57.0",
-    "kysely": "^0.27.2",
-    "pg": "^8.11.3",
-    "tsx": "^4.7.1",
-    "typescript": "^5.3.3"
+    "kysely": "^0.27.3",
+    "pg": "^8.11.5",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.5"
   },
   "files": [
     "build",
