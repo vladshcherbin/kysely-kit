@@ -13,22 +13,16 @@ export default function generateTableTypes(tables: TableMetadata[]): StatementSt
       const isArray = column.dataType.startsWith('_')
       let type = mapDataType(isArray ? column.dataType.slice(1) : column.dataType)
 
-      if (name === 'createdAt' && type === 'Date' && column.hasDefaultValue) {
-        type = 'GeneratedAlways<Date>'
-      } else if (name === 'updatedAt' && type === 'Date' && column.isNullable) {
-        type = 'ColumnType<Date | null, never, Date>'
-      } else {
-        if (isArray) {
-          type = `${type}[]`
-        }
+      if (isArray) {
+        type = `${type}[]`
+      }
 
-        if (column.isAutoIncrementing) {
-          type = `GeneratedAlways<${type}>`
-        }
+      if (column.isAutoIncrementing) {
+        type = `GeneratedAlways<${type}>`
+      }
 
-        if (column.isNullable) {
-          type = `${type} | null`
-        }
+      if (column.isNullable) {
+        type = `${type} | null`
       }
 
       return {
