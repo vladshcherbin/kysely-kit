@@ -1,7 +1,7 @@
 {
   "name": "kysely-kit",
   "description": "Useful utilities for working with Kysely",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "author": "Vlad Shcherbin <vlad.shcherbin@gmail.com>",
   "repository": "vladshcherbin/kysely-kit",
   "type": "module",
