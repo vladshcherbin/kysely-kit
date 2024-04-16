@@ -10,10 +10,20 @@ export default function generateOverrides(
     Object.entries(config.overrides).forEach(([column, type]) => {
       const [tableName, columnName] = column.split('.')
 
-      sourceFile
-        .getInterfaceOrThrow(camelcase(`${tableName}Table`, { pascalCase: true }))
-        .getPropertyOrThrow(camelcase(columnName))
-        .setType(type)
+      if (tableName === '*') {
+        sourceFile.getInterfaces().forEach((interface_) => {
+          interface_.getProperties().forEach((property) => {
+            if (property.getName() === camelcase(columnName)) {
+              property.setType(type)
+            }
+          })
+        })
+      } else {
+        sourceFile
+          .getInterfaceOrThrow(camelcase(`${tableName}Table`, { pascalCase: true }))
+          .getPropertyOrThrow(camelcase(columnName))
+          .setType(type)
+      }
     })
   }
 }
