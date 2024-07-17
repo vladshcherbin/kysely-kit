@@ -9,6 +9,7 @@ export default function mapDataType(dataType: string): string {
     case 'text':
     case 'varchar':
       return 'string'
+    case 'timestamp':
     case 'timestamptz':
       return 'Date'
     default:
