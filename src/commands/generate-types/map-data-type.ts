@@ -1,5 +1,7 @@
 export default function mapDataType(dataType: string): string {
   switch (dataType) {
+    case 'bool':
+      return 'boolean'
     case 'int4':
       return 'number'
     case 'jsonb':
