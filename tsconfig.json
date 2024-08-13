@@ -1,6 +1,7 @@
 {
   "extends": "@tsconfig/node20",
   "compilerOptions": {
-    "outDir": "build"
+    "outDir": "build",
+    "verbatimModuleSyntax": true
   }
 }
