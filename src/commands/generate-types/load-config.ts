@@ -6,7 +6,7 @@ const schema = object({
     defaultImport: string(),
     moduleSpecifier: string()
   }))),
-  overrides: optional(record(string())),
+  overrides: optional(record(string(), string())),
   types: optional(array(object({
     name: string(),
     type: string()

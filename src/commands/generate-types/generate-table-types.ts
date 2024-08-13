@@ -1,6 +1,6 @@
 import camelcase from 'camelcase'
 import type { TableMetadata } from 'kysely'
-import { StatementStructures, StructureKind } from 'ts-morph'
+import { type StatementStructures, StructureKind } from 'ts-morph'
 import mapDataType from './map-data-type.js'
 
 export default function generateTableTypes(tables: TableMetadata[]): StatementStructures[] {
