@@ -9,7 +9,8 @@
     "build": "tsc",
     "dev": "tsx watch --env-file=.env src/kysely.ts",
     "lint": "eslint src",
-    "prepublishOnly": "yarn lint && yarn build"
+    "prepublishOnly": "pnpm lint && pnpm build",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "camelcase": "^8.0.0",
