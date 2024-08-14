@@ -4,5 +4,8 @@ module.exports = {
     EXPERIMENTAL_useProjectService: true,
     tsconfigRootDir: __dirname
   },
-  root: true
+  root: true,
+  rules: {
+    'no-console': 'off'
+  }
 }
