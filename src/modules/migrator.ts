@@ -1,14 +1,11 @@
-import fs from 'node:fs/promises'
-import path from 'node:path'
-import { FileMigrationProvider, Migrator } from 'kysely'
+import { Migrator } from 'kysely'
+import FileMigrationProvider from './FileMigrationProvider.js'
 import database from './database.js'
 
 const migrator = new Migrator({
   db: database,
   provider: new FileMigrationProvider({
-    fs,
-    migrationFolder: `${process.cwd()}/migrations`,
-    path
+    migrationFolder: 'migrations'
   })
 })
 

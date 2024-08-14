@@ -1,4 +1,4 @@
-#!/usr/bin/env -S node --import tsx/esm
+#!/usr/bin/env node
 import './commands/generate-types/command.js'
 import './commands/migrate-make/command.js'
 import './commands/migrate-up/command.js'
