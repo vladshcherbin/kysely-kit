@@ -1,6 +1,8 @@
 {
-  "extends": "@tsconfig/node20",
+  "extends": "@tsconfig/node22",
   "compilerOptions": {
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
     "outDir": "build",
     "verbatimModuleSyntax": true
   },
