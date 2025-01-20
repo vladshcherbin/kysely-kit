@@ -47,10 +47,5 @@
     "kysely": "build/kysely.js"
   },
   "types": "types/kysely.d.ts",
-  "packageManager": "pnpm@9.7.0",
-  "engines": {
-    "node": "20.x",
-    "pnpm": "9.x"
-  },
   "license": "MIT"
 }
