@@ -1,8 +1,9 @@
+/* eslint-disable no-await-in-loop, no-restricted-syntax */
 import { readdir } from 'node:fs/promises'
 import { basename, extname, join } from 'node:path'
 import type { Migration, MigrationProvider } from 'kysely'
+import { isWindows } from 'std-env'
 import { tsImport } from 'tsx/esm/api'
-import isMigration from './is-migration.js'
 
 interface FileMigrationProviderProps {
   migrationFolder: string
@@ -15,24 +16,17 @@ export default class FileMigrationProvider implements MigrationProvider {
     this.migrationFolder = props.migrationFolder
   }
 
-  async getMigrations(): Promise<Record<string, Migration>> {
+  async getMigrations() {
     const migrations: Record<string, Migration> = {}
     const files = await readdir(this.migrationFolder)
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const fileName of files) {
-      const filePath = join(process.cwd(), this.migrationFolder, fileName)
-      // eslint-disable-next-line no-await-in-loop
+      const path = join(process.cwd(), this.migrationFolder, fileName)
+      const filePath = isWindows && !path.startsWith('file://') ? `file://${path}` : path
       const migration = await tsImport(filePath, { parentURL: import.meta.url })
       const migrationKey = basename(fileName, extname(fileName))
 
-      if (isMigration(migration?.default)) {
-        migrations[migrationKey] = migration.default
-      } else if (isMigration(migration)) {
-        migrations[migrationKey] = migration
-      } else {
-        console.warn(`"${fileName}" is not a migration`)
-      }
+      migrations[migrationKey] = migration
     }
 
     return migrations

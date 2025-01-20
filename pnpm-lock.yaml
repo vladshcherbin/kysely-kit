@@ -29,6 +29,9 @@ importers:
       sade:
         specifier: ^1.8.1
         version: 1.8.1
+      std-env:
+        specifier: ^3.8.0
+        version: 3.8.0
       ts-morph:
         specifier: ^23.0.0
         version: 23.0.0
@@ -2001,6 +2004,9 @@ packages:
   split2@4.2.0:
     resolution: {integrity: sha512-UcjcJOWknrNkF6PLX83qcHM6KHgVKNkV62Y8a5uYDVv9ydGQVwAHMKqHdJje1VTWpljG0WYpCDhrCdAOYH4TWg==}
     engines: {node: '>= 10.x'}
+
+  std-env@3.8.0:
+    resolution: {integrity: sha512-Bc3YwwCB+OzldMxOXJIIvC6cPRWr/LxOp48CdQTOkPyk/t4JWWJbrilwBd7RJzKV8QW7tJkcgAmeuLLJugl5/w==}
 
   string-width@1.0.2:
     resolution: {integrity: sha512-0XsVpQLnVCXHJfyEs8tC0zpTVIr5PKKsQtkT29IwupnPTjtPmQ3xT/4yCREF9hYkV/3M3kzcUTSAZT6a6h81tw==}
@@ -4307,6 +4313,8 @@ snapshots:
   spdx-license-ids@3.0.18: {}
 
   split2@4.2.0: {}
+
+  std-env@3.8.0: {}
 
   string-width@1.0.2:
     dependencies:
