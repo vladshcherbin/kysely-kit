@@ -3,7 +3,7 @@ import dedent from 'dedent'
 export default dedent`
   import { type Kysely, sql } from 'kysely'
 
-  export async function up(database: Kysely<any>) {
+  export async function up(database: Kysely<unknown>) {
     await database.schema
       .createTable('')
       .addColumn('id', 'serial', (colummn) => colummn.primaryKey())
@@ -12,7 +12,7 @@ export default dedent`
       .execute()
   }
 
-  export async function down(database: Kysely<any>) {
+  export async function down(database: Kysely<unknown>) {
     await database.schema
       .dropTable('')
       .execute()
