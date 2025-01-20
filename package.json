@@ -30,7 +30,7 @@
     "pg": "^8.12.0"
   },
   "devDependencies": {
-    "@shcherbin/eslint-config-node-typescript": "^0.3.0",
+    "@shcherbin/eslint-config": "^0.15.9",
     "@tsconfig/node22": "^22.0.0",
     "@types/node": "^22.10.7",
     "@types/pg": "^8.11.10",
