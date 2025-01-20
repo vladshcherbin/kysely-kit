@@ -2,7 +2,7 @@
 import { readdir } from 'node:fs/promises'
 import { basename, extname, join } from 'node:path'
 import type { Migration, MigrationProvider } from 'kysely'
-import { isWindows } from 'std-env'
+import { isWindows } from 'environment'
 import { tsImport } from 'tsx/esm/api'
 
 interface FileMigrationProviderProps {
@@ -21,9 +21,11 @@ export default class FileMigrationProvider implements MigrationProvider {
     const files = await readdir(this.migrationFolder)
 
     for (const fileName of files) {
-      const path = join(process.cwd(), this.migrationFolder, fileName)
-      const filePath = isWindows && !path.startsWith('file://') ? `file://${path}` : path
-      const migration = await tsImport(filePath, { parentURL: import.meta.url })
+      const filePath = join(process.cwd(), this.migrationFolder, fileName)
+      const migration = await tsImport(
+        isWindows && !filePath.startsWith('file://') ? `file://${filePath}` : filePath,
+        { parentURL: import.meta.url }
+      )
       const migrationKey = basename(fileName, extname(fileName))
 
       migrations[migrationKey] = migration

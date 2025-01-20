@@ -17,10 +17,10 @@
     "cosmiconfig": "^9.0.0",
     "dedent": "^1.5.3",
     "dotenv": "^16.4.5",
+    "environment": "^1.1.0",
     "prettier": "^3.3.3",
     "read-package-up": "^11.0.0",
     "sade": "^1.8.1",
-    "std-env": "^3.8.0",
     "ts-morph": "^23.0.0",
     "tsx": "^4.17.0",
     "valibot": "^0.37.0"
