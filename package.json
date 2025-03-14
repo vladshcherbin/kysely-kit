@@ -7,9 +7,10 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
+    "copy-templates": "cpy 'src/**/template.ts' ../dist --cwd=src",
     "dev": "tsx watch --env-file=.env src/kysely.ts",
     "lint": "eslint src",
-    "prepublishOnly": "pnpm lint && pnpm typecheck && pnpm build",
+    "prepublishOnly": "pnpm lint && pnpm typecheck && pnpm build && pnpm copy-templates",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
