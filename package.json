@@ -37,12 +37,10 @@
     "typescript": "^5.8.2"
   },
   "files": [
-    "build",
-    "types"
+    "dist"
   ],
   "bin": {
     "kysely": "build/kysely.js"
   },
-  "types": "types/kysely.d.ts",
   "license": "MIT"
 }
