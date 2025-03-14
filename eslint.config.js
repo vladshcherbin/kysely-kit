@@ -1,7 +1,7 @@
 import config from '@shcherbin/eslint-config'
 
 export default [
-  ...config.nextTypescript,
+  ...config.nodeTypescript,
   {
     rules: {
       'no-console': 'off'
