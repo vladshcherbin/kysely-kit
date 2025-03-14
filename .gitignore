@@ -1,4 +1,4 @@
 .env
-build
-kysely.config.js
+dist
+kysely.config.ts
 node_modules
