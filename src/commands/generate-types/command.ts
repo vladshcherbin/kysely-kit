@@ -14,7 +14,7 @@ cli
     try {
       const tables = await database.introspection.getTables()
       const publicTables = tables.filter((table) => table.schema === 'public')
-      const project = new Project()
+      const project = new Project({ tsConfigFilePath: 'tsconfig.json' })
       const sourceFile = project.createSourceFile(
         output,
         { statements: generateTableTypes(publicTables) },
