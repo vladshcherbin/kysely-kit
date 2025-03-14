@@ -7,9 +7,11 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
+    "clean": "rimraf dist",
     "copy-templates": "cpy './**/template.ts' ../dist --cwd=src",
     "dev": "tsx watch --env-file=.env src/kysely.ts",
     "lint": "eslint src",
+    "postpublish": "pnpm clean",
     "prepublishOnly": "pnpm lint && pnpm typecheck && pnpm build && pnpm copy-templates",
     "typecheck": "tsc --noEmit"
   },
@@ -35,6 +37,7 @@
     "cpy-cli": "^5.0.0",
     "kysely": "^0.27.6",
     "pg": "^8.14.0",
+    "rimraf": "^6.0.1",
     "typescript": "^5.8.2"
   },
   "files": [
