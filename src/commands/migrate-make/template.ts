@@ -1,20 +1,16 @@
-import dedent from 'dedent'
+import { type Kysely, sql } from 'kysely'
 
-export default dedent`
-  import { type Kysely, sql } from 'kysely'
+export async function up(database: Kysely<unknown>) {
+  await database.schema
+    .createTable('')
+    .addColumn('id', 'serial', (colummn) => colummn.primaryKey())
+    .addColumn('created_at', 'timestamptz', (colummn) => colummn.notNull().defaultTo(sql`now()`))
+    .addColumn('updated_at', 'timestamptz')
+    .execute()
+}
 
-  export async function up(database: Kysely<unknown>) {
-    await database.schema
-      .createTable('')
-      .addColumn('id', 'serial', (colummn) => colummn.primaryKey())
-      .addColumn('created_at', 'timestamptz', (colummn) => colummn.notNull().defaultTo(sql\`now()\`))
-      .addColumn('updated_at', 'timestamptz')
-      .execute()
-  }
-
-  export async function down(database: Kysely<unknown>) {
-    await database.schema
-      .dropTable('')
-      .execute()
-  }
-`
+export async function down(database: Kysely<unknown>) {
+  await database.schema
+    .dropTable('')
+    .execute()
+}

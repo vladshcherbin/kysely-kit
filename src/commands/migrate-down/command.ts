@@ -8,13 +8,17 @@ cli
     try {
       const { error, results } = await migrator.migrateDown()
 
-      results?.forEach(({ migrationName, status }) => {
-        if (status === 'Success') {
-          console.info(`Migration ${migrationName} rolled back successfully`)
-        } else if (status === 'Error') {
-          console.error(`Failed to rollback ${migrationName}`)
-        }
-      })
+      if (results?.length) {
+        results.forEach(({ migrationName, status }) => {
+          if (status === 'Success') {
+            console.info(`Migration ${migrationName} rolled back successfully`)
+          } else if (status === 'Error') {
+            console.error(`Failed to rollback ${migrationName}`)
+          }
+        })
+      } else {
+        console.log('No migrations to rollback')
+      }
 
       if (error) {
         console.error(error)

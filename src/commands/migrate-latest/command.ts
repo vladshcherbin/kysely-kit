@@ -8,13 +8,17 @@ cli
     try {
       const { error, results } = await migrator.migrateToLatest()
 
-      results?.forEach(({ migrationName, status }) => {
-        if (status === 'Success') {
-          console.info(`Migration ${migrationName} executed successfully`)
-        } else if (status === 'Error') {
-          console.error(`Failed to execute ${migrationName}`)
-        }
-      })
+      if (results?.length) {
+        results.forEach(({ migrationName, status }) => {
+          if (status === 'Success') {
+            console.info(`Migration ${migrationName} executed successfully`)
+          } else if (status === 'Error') {
+            console.error(`Failed to execute ${migrationName}`)
+          }
+        })
+      } else {
+        console.log('Migrations are up to date')
+      }
 
       if (error) {
         console.error(error)

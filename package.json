@@ -14,30 +14,27 @@
   },
   "dependencies": {
     "camelcase": "^8.0.0",
-    "cosmiconfig": "^9.0.0",
-    "dedent": "^1.5.3",
     "dotenv": "^16.4.7",
-    "environment": "^1.1.0",
-    "prettier": "^3.4.2",
+    "eslint": "^9.22.0",
+    "jiti": "^2.4.2",
+    "pathe": "^2.0.3",
     "read-package-up": "^11.0.0",
     "sade": "^1.8.1",
-    "ts-morph": "^25.0.0",
-    "tsx": "^4.19.2",
-    "valibot": "1.0.0-beta.12"
+    "ts-morph": "^25.0.1",
+    "valibot": "1.0.0-rc.4"
   },
   "peerDependencies": {
-    "kysely": "^0.27.4",
-    "pg": "^8.12.0"
+    "kysely": "^0.27.6",
+    "pg": "^8.14.0"
   },
   "devDependencies": {
-    "@shcherbin/eslint-config": "^0.15.9",
-    "@tsconfig/node22": "^22.0.0",
-    "@types/node": "^22.10.7",
-    "@types/pg": "^8.11.10",
-    "eslint": "^9.18.0",
-    "kysely": "^0.27.5",
-    "pg": "^8.13.1",
-    "typescript": "^5.7.3"
+    "@shcherbin/eslint-config": "^0.15.10",
+    "@types/node": "^22.13.10",
+    "@types/pg": "^8.11.11",
+    "cpy-cli": "^5.0.0",
+    "kysely": "^0.27.6",
+    "pg": "^8.14.0",
+    "typescript": "^5.8.2"
   },
   "files": [
     "build",

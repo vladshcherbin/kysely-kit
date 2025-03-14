@@ -1,17 +1,8 @@
-import { SourceFile } from 'ts-morph'
-import type loadConfig from './load-config.js'
+import type { SourceFile } from 'ts-morph'
 
-export default function generateImports(
-  sourceFile: SourceFile,
-  config: Awaited<ReturnType<typeof loadConfig>>
-) {
-  if (config?.imports?.length) {
-    config.imports.forEach(({ defaultImport, moduleSpecifier }) => {
-      sourceFile.addImportDeclaration({
-        defaultImport,
-        isTypeOnly: true,
-        moduleSpecifier
-      })
-    })
-  }
+export default function generateImports(sourceFile: SourceFile) {
+  sourceFile.fixMissingImports({}, {
+    importModuleSpecifierEnding: 'js',
+    preferTypeOnlyAutoImports: true
+  })
 }

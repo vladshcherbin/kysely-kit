@@ -1,29 +1,37 @@
 import camelcase from 'camelcase'
-import type { SourceFile } from 'ts-morph'
-import type loadConfig from './load-config.js'
+import type { Project, SourceFile } from 'ts-morph'
 
-export default function generateOverrides(
-  sourceFile: SourceFile,
-  config: Awaited<ReturnType<typeof loadConfig>>
-) {
-  if (config?.overrides && Object.keys(config.overrides).length) {
-    Object.entries(config.overrides).forEach(([column, type]) => {
-      const [tableName, columnName] = column.split('.')
+export default function generateOverrides(project: Project, sourceFile: SourceFile) {
+  const config = project.addSourceFileAtPathIfExists('kysely.config.ts')
 
-      if (tableName === '*') {
-        sourceFile.getInterfaces().forEach((interface_) => {
-          interface_.getProperties().forEach((property) => {
-            if (property.getName() === camelcase(columnName)) {
-              property.setType(type)
+  if (config) {
+    const overrides = config.getInterface('Overrides')
+
+    if (overrides) {
+      for (const property of overrides.getProperties()) {
+        const propertyName = property.getName()
+        const typeName = property.getTypeNodeOrThrow().getText()
+        const [table, column] = propertyName.replace(/^'(?<property>.*)'$/, '$<property>').split('.')
+
+        if (!table || !column) {
+          throw new Error(`Invalid property format: ${propertyName}`)
+        }
+
+        if (table === '*') {
+          for (const sourceFileInterface of sourceFile.getInterfaces()) {
+            for (const sourceFileProperty of sourceFileInterface.getProperties()) {
+              if (sourceFileProperty.getName() === camelcase(column)) {
+                sourceFileProperty.setType(typeName)
+              }
             }
-          })
-        })
-      } else {
-        sourceFile
-          .getInterfaceOrThrow(camelcase(`${tableName}Table`, { pascalCase: true }))
-          .getPropertyOrThrow(camelcase(columnName))
-          .setType(type)
+          }
+        } else {
+          sourceFile
+            .getInterfaceOrThrow(camelcase(`${table}Table`, { pascalCase: true }))
+            .getPropertyOrThrow(camelcase(column))
+            .setType(typeName)
+        }
       }
-    })
+    }
   }
 }

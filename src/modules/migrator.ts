@@ -1,6 +1,6 @@
 import { Migrator } from 'kysely'
-import FileMigrationProvider from './FileMigrationProvider.js'
 import database from './database.js'
+import FileMigrationProvider from './FileMigrationProvider.js'
 
 const migrator = new Migrator({
   db: database,

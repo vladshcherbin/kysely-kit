@@ -10,7 +10,6 @@ cli
       const executedMigrations = migrations.filter((migration) => migration.executedAt)
 
       if (executedMigrations.length) {
-        // eslint-disable-next-line no-restricted-syntax
         for (const { name } of executedMigrations) {
           // eslint-disable-next-line no-await-in-loop
           await migrator.migrateDown()

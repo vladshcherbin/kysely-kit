@@ -5,7 +5,7 @@ export default function mapDataType(dataType: string): string {
     case 'int4':
       return 'number'
     case 'jsonb':
-      return 'JSONColumnType<{}>'
+      return 'JSONColumnType<object>'
     case 'text':
     case 'varchar':
       return 'string'
