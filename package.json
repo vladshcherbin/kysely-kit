@@ -41,7 +41,7 @@
     "dist"
   ],
   "bin": {
-    "kysely": "build/kysely.js"
+    "kysely": "dist/kysely.js"
   },
   "license": "MIT"
 }
