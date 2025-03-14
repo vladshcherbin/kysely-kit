@@ -25,8 +25,8 @@ cli
       generateOverrides(project, sourceFile)
       generateImports(sourceFile)
 
-      await prettify(sourceFile, output)
       await sourceFile.save()
+      await prettify(output)
 
       console.info(`Generated types for ${publicTables.length} tables in ${output}`)
     } catch (error) {
