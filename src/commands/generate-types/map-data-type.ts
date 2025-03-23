@@ -3,6 +3,7 @@ export default function mapDataType(dataType: string): string {
     case 'bool':
       return 'boolean'
     case 'int4':
+    case 'numeric':
       return 'number'
     case 'jsonb':
       return 'JSONColumnType<object>'
