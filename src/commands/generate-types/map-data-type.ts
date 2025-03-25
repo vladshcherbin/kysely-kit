@@ -14,6 +14,6 @@ export default function mapDataType(dataType: string): string {
     case 'timestamptz':
       return 'Date'
     default:
-      throw new Error(`Unknown data type: ${dataType}`)
+      return 'unknown'
   }
 }
