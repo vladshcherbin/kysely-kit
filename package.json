@@ -17,28 +17,28 @@
   },
   "dependencies": {
     "camelcase": "^8.0.0",
-    "dotenv": "^16.4.7",
-    "eslint": "^9.22.0",
+    "dotenv": "^16.5.0",
+    "eslint": "^9.25.1",
     "jiti": "^2.4.2",
     "pathe": "^2.0.3",
     "read-package-up": "^11.0.0",
     "sade": "^1.8.1",
     "ts-morph": "^25.0.1",
-    "valibot": "1.0.0-rc.4"
+    "valibot": "1.0.0"
   },
   "peerDependencies": {
-    "kysely": "^0.27.6",
+    "kysely": "^0.28.1",
     "pg": "^8.14.0"
   },
   "devDependencies": {
     "@shcherbin/eslint-config": "^0.15.10",
-    "@types/node": "^22.13.10",
-    "@types/pg": "^8.11.11",
+    "@types/node": "^22.14.1",
+    "@types/pg": "^8.11.13",
     "cpy-cli": "^5.0.0",
-    "kysely": "^0.27.6",
-    "pg": "^8.14.0",
+    "kysely": "^0.28.1",
+    "pg": "^8.15.1",
     "rimraf": "^6.0.1",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   },
   "files": [
     "dist"
