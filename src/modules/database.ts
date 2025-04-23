@@ -7,8 +7,7 @@ const database = new Kysely({
   dialect: new PostgresDialect({
     pool: new pg.Pool({
       connectionString: parse(string(), process.env.DATABASE_CONNECTION_STRING),
-      max: 1,
-      min: 1
+      max: 1
     })
   })
 })
