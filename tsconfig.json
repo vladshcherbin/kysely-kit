@@ -1,16 +1,9 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "erasableSyntaxOnly": true,
-    "lib": ["es2024"],
-    "module": "nodenext",
-    "noImplicitReturns": true,
-    "noUncheckedIndexedAccess": true,
-    "outDir": "dist",
+    "allowImportingTsExtensions": true,
+    "module": "esnext",
+    "noEmit": true,
     "skipLibCheck": true,
-    "strict": true,
-    "target": "es2024",
-    "verbatimModuleSyntax": true
-  },
-  "include": ["src"]
+    "types": ["node"]
+  }
 }

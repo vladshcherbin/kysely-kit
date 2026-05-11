@@ -1,5 +1,5 @@
-import camelcase from 'camelcase'
 import type { Project, SourceFile } from 'ts-morph'
+import camelcase from 'camelcase'
 
 export default function generateOverrides(project: Project, sourceFile: SourceFile) {
   const config = project.addSourceFileAtPathIfExists('kysely.config.ts')

@@ -1,50 +1,48 @@
 {
   "name": "kysely-kit",
-  "description": "Useful utilities for working with Kysely",
+  "description": "Kysely types generation utility",
   "version": "0.10.0",
   "author": "Vlad Shcherbin <vlad.shcherbin@gmail.com>",
   "repository": "vladshcherbin/kysely-kit",
-  "type": "module",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "kysely-kit": "./dist/index.mjs"
+  },
   "scripts": {
-    "build": "tsc",
-    "clean": "rimraf dist",
-    "copy-templates": "cpy './**/template.ts' ../dist --cwd=src",
-    "dev": "tsx watch --env-file=.env src/kysely.ts",
-    "lint": "eslint src",
-    "postpublish": "pnpm clean",
-    "prepublishOnly": "pnpm lint && pnpm typecheck && pnpm build && pnpm copy-templates",
+    "build": "tsdown",
+    "lint": "eslint",
+    "prepublishOnly": "pnpm lint && pnpm typecheck && pnpm build",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "camelcase": "^8.0.0",
-    "dotenv": "^16.5.0",
-    "eslint": "^9.25.1",
-    "jiti": "^2.4.2",
-    "pathe": "^2.0.3",
-    "read-package-up": "^11.0.0",
+    "camelcase": "^9.0.0",
+    "eslint": "^10.3.0",
+    "find-up-simple": "^1.0.1",
     "sade": "^1.8.1",
-    "ts-morph": "^25.0.1",
-    "valibot": "1.0.0"
+    "ts-morph": "^28.0.0"
   },
   "peerDependencies": {
-    "kysely": "^0.28.1",
-    "pg": "^8.14.0"
+    "kysely": "^0.29.0"
   },
   "devDependencies": {
-    "@shcherbin/eslint-config": "^0.15.10",
-    "@types/node": "^22.14.1",
-    "@types/pg": "^8.11.13",
-    "cpy-cli": "^5.0.0",
-    "kysely": "^0.28.1",
-    "pg": "^8.15.1",
-    "rimraf": "^6.0.1",
-    "typescript": "^5.8.3"
+    "@shcherbin/eslint-config-node": "^0.5.0",
+    "@types/node": "^22.19.18",
+    "@types/pg": "^8.20.0",
+    "kysely": "^0.29.0",
+    "pg": "^8.20.0",
+    "tsdown": "^0.22.0",
+    "typescript": "^6.0.3"
   },
   "files": [
     "dist"
   ],
-  "bin": {
-    "kysely": "dist/kysely.js"
+  "engines": {
+    "node": ">= 22"
   },
+  "sideEffects": false,
+  "type": "module",
   "license": "MIT"
 }

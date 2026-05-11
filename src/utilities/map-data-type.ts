@@ -1,7 +1,5 @@
-export default function mapDataType(dataType: string): string {
+export default function mapDataType(dataType: string) {
   switch (dataType) {
-    case 'bool':
-      return 'boolean'
     case 'int4':
     case 'numeric':
       return 'number'
@@ -10,7 +8,6 @@ export default function mapDataType(dataType: string): string {
     case 'text':
     case 'varchar':
       return 'string'
-    case 'timestamp':
     case 'timestamptz':
       return 'Date'
     default:

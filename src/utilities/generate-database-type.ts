@@ -1,6 +1,6 @@
-import camelcase from 'camelcase'
 import type { TableMetadata } from 'kysely'
 import type { SourceFile } from 'ts-morph'
+import camelcase from 'camelcase'
 
 export default function generateDatabaseType(sourceFile: SourceFile, tables: TableMetadata[]) {
   sourceFile.addInterface({
