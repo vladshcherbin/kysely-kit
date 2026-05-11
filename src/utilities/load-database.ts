@@ -5,7 +5,7 @@ import { dirname, join } from 'node:path'
 import { loadEnvFile } from 'node:process'
 import { pathToFileURL } from 'node:url'
 
-export default async function loadKysely() {
+export default async function loadDatabase() {
   const configFilePath = await findUp('kysely.config.ts')
 
   if (!configFilePath) {
@@ -18,7 +18,7 @@ export default async function loadKysely() {
     loadEnvFile(envFilePath)
   }
 
-  const { default: kysely } = await import(pathToFileURL(configFilePath).href) as { default: Kysely<unknown> }
+  const { database } = await import(pathToFileURL(configFilePath).href) as { database: Kysely<unknown> }
 
-  return kysely
+  return database
 }
