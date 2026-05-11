@@ -12,7 +12,7 @@ export default async function generateTypes(path: string) {
   try {
     const tables = await database.introspection.getTables()
     const publicTables = tables.filter((table) => table.schema === 'public')
-    const project = new Project({ tsConfigFilePath: 'tsconfig.json' })
+    const project = new Project()
     const sourceFile = project.createSourceFile(
       path,
       { statements: generateTableTypes(publicTables) },
