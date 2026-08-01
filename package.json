@@ -3,7 +3,10 @@
   "description": "Kysely types generation utility",
   "version": "0.12.1",
   "author": "Vlad Shcherbin <vlad.shcherbin@gmail.com>",
-  "repository": "vladshcherbin/kysely-kit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vladshcherbin/kysely-kit.git"
+  },
   "exports": {
     ".": "./dist/index.mjs",
     "./package.json": "./package.json"
