@@ -1,9 +1,9 @@
 export default function mapDataType(dataType: string) {
   switch (dataType) {
-    case 'bigint':
+    case 'int2':
     case 'int4':
+    case 'int8':
     case 'numeric':
-    case 'smallint':
       return 'number'
     case 'jsonb':
       return 'JSONColumnType<object>'
