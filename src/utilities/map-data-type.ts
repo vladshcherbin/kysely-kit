@@ -8,6 +8,7 @@ export default function mapDataType(dataType: string) {
     case 'jsonb':
       return 'JSONColumnType<object>'
     case 'text':
+    case 'uuid':
     case 'varchar':
       return 'string'
     case 'timestamptz':
