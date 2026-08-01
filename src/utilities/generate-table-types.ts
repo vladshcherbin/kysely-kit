@@ -17,6 +17,10 @@ export default function generateTableTypes(tables: TableMetadata[]): StatementSt
         type = `${type}[]`
       }
 
+      if (column.hasDefaultValue) {
+        type = `Generated<${type}>`
+      }
+
       if (column.isAutoIncrementing) {
         type = `GeneratedAlways<${type}>`
       }
