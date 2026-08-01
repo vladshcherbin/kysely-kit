@@ -1,7 +1,7 @@
 {
   "name": "kysely-kit",
   "description": "Kysely types generation utility",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "author": "Vlad Shcherbin <vlad.shcherbin@gmail.com>",
   "repository": {
     "type": "git",
